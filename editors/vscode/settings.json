@@ -1,0 +1,48 @@
+{
+  "editor.tabSize": 2,
+  "editor.indentSize": "tabSize",
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "[python]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "editor.accessibilitySupport": "off",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.autoSave": "onFocusChange",
+  "workbench.colorTheme": "Monokai",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "editor.lineNumbers": "relative",
+  "git.autofetch": true,
+  "vim.handleKeys": {
+    "<Tab>": false,
+    "<S-Tab>": false
+  },
+  "vim.useCtrlKeys": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["k", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "redhat.telemetry.enabled": false,
+  "remote.autoForwardPortsSource": "hybrid",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "editor.quickSuggestions": {
+    "other": "off"
+  },
+  "editor.suggest.snippetsPreventQuickSuggestions": true,
+  "editor.wordBasedSuggestions": "off",
+  "search.searchView.keywordSuggestions": true,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "editor.snippetSuggestions": "none",
+  "editor.rulers": [80, 120],
+  "editor.fontSize": 16,
+  "debug.console.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
+  "chat.editor.fontSize": 14,
+  "window.zoomLevel": 1.25
+}
+
