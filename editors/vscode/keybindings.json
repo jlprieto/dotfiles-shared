@@ -1,0 +1,27 @@
+// Shared VS Code keybindings (generic; safe for both work and home).
+// vim visual indent/outdent, comment-line in normal mode, terminal shift+enter -> ESC+CR.
+[
+  {
+    "key": "tab",
+    "command": "editor.action.indentLines",
+    "when": "textInputFocus && !editorReadonly && editorTextFocus && vim.mode == 'Visual'"
+  },
+  {
+    "key": "shift+tab",
+    "command": "editor.action.outdentLines",
+    "when": "textInputFocus && !editorReadonly && editorTextFocus && vim.mode == 'Visual'"
+  },
+  {
+    "key": "cmd+/",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly && vim.mode == 'Normal'"
+  },
+  {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\u001b\r"
+    },
+    "when": "terminalFocus"
+  }
+]
