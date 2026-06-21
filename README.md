@@ -140,6 +140,37 @@ Those wrappers should:
 
 That order is intentional: shared provides the baseline and overlays customize it.
 
+## ai-brain Skills (global exposure)
+
+`scripts/install-ai-brain-skills.sh` symlinks every skill directory under
+`$AI_BRAIN_ROOT/.claude/skills/` into `~/.claude/skills/`, so the private ai-brain vault's skills
+(`/capture`, `/query`, `/task`, …) are invocable from any directory. The vault is the single source
+of truth — no skill logic is copied into this repo. The installer is idempotent and only ever removes
+symlinks that point back into the vault (real directories — e.g. an overlay's work-only skills like
+`whats-next` — are never touched).
+
+It runs automatically from each overlay's `install.sh`. To run it by hand:
+
+```bash
+AI_BRAIN_ROOT="$HOME/workspaces/ai-brain" bash shared/scripts/install-ai-brain-skills.sh
+```
+
+### Add / rename / remove a skill
+
+The slash-command name comes from the skill's `name:` frontmatter (and folder name), not from
+dotfiles. So the lifecycle is always **edit the vault, then re-run the installer**:
+
+1. **Add** → create `$AI_BRAIN_ROOT/.claude/skills/<name>/SKILL.md` in the vault, then re-run the
+   installer.
+2. **Rename** → change the skill's `name:` frontmatter **and** its folder name in the vault, then
+   re-run the installer. The old symlink is pruned and the new one created automatically.
+3. **Remove** → delete the skill's folder in the vault, then re-run the installer (the stale symlink
+   is pruned).
+
+Re-run on **each machine**: the vault itself syncs via git, but the `~/.claude/skills/` symlinks are
+per-machine. (Opening a new shell also re-runs it, since the overlay `install.sh` calls it.) No
+dotfiles change is needed for a rename.
+
 ## Guidance for AI Tools
 
 When changing the shared repo:
