@@ -171,6 +171,25 @@ Re-run on **each machine**: the vault itself syncs via git, but the `~/.claude/s
 per-machine. (Opening a new shell also re-runs it, since the overlay `install.sh` calls it.) No
 dotfiles change is needed for a rename.
 
+## VS Code config
+
+`scripts/install-vscode-config.sh` applies the shared editor config to the live VS Code user dir:
+- **`editors/vscode/keybindings.json`** → symlinked (fully generic).
+- **`editors/vscode/settings.json`** → the generic baseline, **merged** (via `jq`) with this machine's
+  `overlay/editors/vscode/settings.local.json` (machine keys win) and written to the live `settings.json`.
+  The live file is **generated** — put machine/extension/account-specific settings in the overlay's
+  `settings.local.json`, not the live file (it's overwritten on each run; a timestamped backup is made).
+
+Run from an overlay install, or by hand. Targets stable VS Code by default; for Insiders/another install,
+pass `VSCODE_USER_DIR`:
+```bash
+bash shared/scripts/install-vscode-config.sh
+VSCODE_USER_DIR="$HOME/Library/Application Support/Code - Insiders/User" bash shared/scripts/install-vscode-config.sh
+```
+> ⚠️ Before first run on a machine with rich existing settings, copy that machine's non-generic keys into
+> its `overlay/editors/vscode/settings.local.json` — otherwise the merge replaces the live file with only
+> the generic base (the timestamped backup still has the originals).
+
 ## Guidance for AI Tools
 
 When changing the shared repo:

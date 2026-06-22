@@ -12,37 +12,30 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "files.autoSave": "onFocusChange",
-  "workbench.colorTheme": "Monokai",
+  "workbench.colorTheme": "Dark Modern",
+  "workbench.preferredDarkColorTheme": "Monokai",
+  "window.systemColorTheme": "light",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "editor.lineNumbers": "relative",
   "git.autofetch": true,
-  "vim.handleKeys": {
-    "<Tab>": false,
-    "<S-Tab>": false
-  },
+  "vim.handleKeys": { "<Tab>": false, "<S-Tab>": false },
   "vim.useCtrlKeys": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["k", "j"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "redhat.telemetry.enabled": false,
-  "remote.autoForwardPortsSource": "hybrid",
-  "github.copilot.nextEditSuggestions.enabled": true,
-  "editor.quickSuggestions": {
-    "other": "off"
-  },
+  "vim.insertModeKeyBindings": [ { "before": ["k", "j"], "after": ["<Esc>"] } ],
+  "editor.quickSuggestions": { "other": "off" },
   "editor.suggest.snippetsPreventQuickSuggestions": true,
   "editor.wordBasedSuggestions": "off",
-  "search.searchView.keywordSuggestions": true,
   "editor.inlineSuggest.suppressSuggestions": true,
   "editor.snippetSuggestions": "none",
+  "search.searchView.keywordSuggestions": true,
   "editor.rulers": [80, 120],
   "editor.fontSize": 16,
   "debug.console.fontSize": 16,
   "terminal.integrated.fontSize": 16,
   "chat.editor.fontSize": 14,
-  "window.zoomLevel": 1.25
+  "window.zoomLevel": 1.25,
+  "editor.scrollOnMiddleClick": true,
+  "debug.inlineValues": "on",
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.initialHint": false,
+  "chat.viewSessions.orientation": "stacked",
+  "security.workspace.trust.untrustedFiles": "open"
 }
-
